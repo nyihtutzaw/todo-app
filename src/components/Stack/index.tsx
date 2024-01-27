@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react'
+import { FC, ReactNode } from 'react'
 import styled from 'styled-components'
 
 type Props = {
@@ -29,9 +29,7 @@ export const Stack: FC<Props> = ({
       justifyContent={justifyContent}
       alignItems={alignItems}
     >
-      {React.Children.map(children, (child, index) => (
-        <div key={index}>{child}</div>
-      ))}
+      {children}
     </StyledStack>
   )
 }
