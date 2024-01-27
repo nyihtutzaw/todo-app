@@ -9,16 +9,17 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "format": "prettier --write .",
-    "prepare": "npx mrm@2 lint-staged",
+    "prepare": "npx mrm@2 lint-staged && husky install",
     "precommit": "npm run-script lint && npm run-script format"
   },
   "dependencies": {
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.1.3",
-    "lint-staged": "^15.2.0",
     "prettier": "^3.2.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.1.8"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
@@ -29,12 +30,15 @@
     "eslint": "^8.56.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "husky": "^9.0.6",
+    "lint-staged": "^15.2.0",
     "typescript": "^5.2.2",
     "vite": "^5.0.8"
   },
   "lint-staged": {
     "*.{tsx,ts,js,jsx}": [
       "npm run precommit"
-    ]
+    ],
+    "*.{ts,tsx}": "eslint --cache --fix"
   }
 }
