@@ -27,7 +27,7 @@ const Container = styled.div`
   height: 100vh;
   width: 100%;
   margin: 0;
-  padding: 0;
+  padding: 42px 0px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -36,7 +36,7 @@ const Container = styled.div`
 
 const Card = styled.div`
   width: 720px;
-  height: 620px;
+  height: 100%;
   border-radius: 20px;
   background-color: ${COLORS.bgColor};
 
@@ -51,6 +51,13 @@ const Card = styled.div`
 
 const CardContent = styled.div`
   margin: 62px 101px;
+  @media (max-width: ${BREAKPOINTS.tablet}) {
+    margin: 22px;
+  }
+
+  @media (max-width: ${BREAKPOINTS.mobile}) {
+    margin: 22px;
+  }
 `
 
 const GlobalStyle = createGlobalStyle`

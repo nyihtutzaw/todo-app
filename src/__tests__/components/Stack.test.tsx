@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 
-import { Stack } from '../../components'
+import { Stack } from '../../components/Stack'
 
 describe('Stack component', () => {
   it('renders children correctly', () => {

@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import { COLORS } from '../../constants'
-import { Text } from '..'
+import { Stack, Text } from '..'
+import ArrowDown from '../../assets/arrow-down.png'
 
 type Option = {
   value: string
@@ -14,7 +15,10 @@ type SelectBoxProps = {
   defaultValue?: string
 }
 
-const SelectBox: React.FC<SelectBoxProps> = ({ options, defaultValue }) => {
+export const SelectBox: React.FC<SelectBoxProps> = ({
+  options,
+  defaultValue,
+}) => {
   const [selectedOption, setSelectedOption] = useState<Option | null>(
     options.find((option) => option.value === defaultValue) as Option
   )
@@ -28,9 +32,12 @@ const SelectBox: React.FC<SelectBoxProps> = ({ options, defaultValue }) => {
   return (
     <SelectBoxWrapper>
       <SelectBoxButton onClick={() => setOptionsVisible(!isOptionsVisible)}>
-        <Text fontSize={13}>
-          {selectedOption ? selectedOption.label : 'Select an option'}
-        </Text>
+        <Stack direction='row' justifyContent='space-between'>
+          <Text fontSize={13}>
+            {selectedOption ? selectedOption.label : 'Select an option'}
+          </Text>
+          <img src={ArrowDown} />
+        </Stack>
       </SelectBoxButton>
 
       {isOptionsVisible && (
@@ -67,12 +74,11 @@ const SelectBoxWrapper = styled.div`
 const SelectBoxButton = styled.button`
   background-color: ${COLORS.white};
   color: ${COLORS.textColor};
-  padding: 5px 10px;
+  padding: 7px 10px;
   cursor: pointer;
   width: 100%;
   border: none;
   outline: none;
-  text-align: left;
   border-radius: 10px;
   transition:
     background-color 0.3s,
@@ -104,6 +110,5 @@ const OptionItem = styled.li<{ selected: boolean }>`
   transition:
     background-color 0.3s,
     color 0.3s;
+  color: black !important;
 `
-
-export default SelectBox

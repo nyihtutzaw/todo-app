@@ -1,16 +1,10 @@
 import { FC } from 'react'
 import styled from 'styled-components'
 
-import { Stack, Text } from '..'
-import SelectBox from '../SelectBox'
+import { Stack, Text, ListItem, SelectBox } from '..'
+import { TASK_STATUSES } from '../../constants'
 
 export const TaskList: FC = () => {
-  const options = [
-    { value: 'all', label: 'All' },
-    { value: 'done', label: 'Done' },
-    { value: 'undone', label: 'Undone' },
-  ]
-
   return (
     <Stack spacing={16}>
       <Stack direction='row' justifyContent='space-between'>
@@ -18,8 +12,12 @@ export const TaskList: FC = () => {
           Tasks
         </Text>
         <SelectBoxContainer>
-          <SelectBox options={options} defaultValue={'all'} />
+          <SelectBox options={TASK_STATUSES} defaultValue={'all'} />
         </SelectBoxContainer>
+      </Stack>
+      <Stack spacing={16}>
+        <ListItem />
+        <ListItem />
       </Stack>
     </Stack>
   )
