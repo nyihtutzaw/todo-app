@@ -9,6 +9,6 @@ const options = [
 
 describe('SelectBox component', () => {
   it('renders with default value', () => {
-    render(<SelectBox options={options} defaultValue='1' />)
+    render(<SelectBox options={options} defaultValue='1' onChange={() => {}} />)
   })
 })

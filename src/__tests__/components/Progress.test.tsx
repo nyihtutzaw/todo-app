@@ -4,6 +4,6 @@ import { Progress } from '../../components/Progress'
 
 describe('Progress component', () => {
   it('renders component correctly', () => {
-    render(<Progress />)
+    render(<Progress completed={5} progress={3} />)
   })
 })

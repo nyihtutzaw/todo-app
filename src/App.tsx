@@ -3,8 +3,19 @@ import { createGlobalStyle } from 'styled-components'
 
 import { BREAKPOINTS, COLORS } from './constants'
 import { Progress, Stack, TaskList } from './components'
+import useToDoList from './hooks/useToDoList'
 
 function App() {
+  const {
+    todos,
+    completeProgress,
+    completedList,
+    handleStatusChange,
+    handleAddTodoList,
+    handleDeleteTodoList,
+    handleToggleToDoList,
+    handleEditToDoList,
+  } = useToDoList()
   return (
     <>
       <GlobalStyle />
@@ -12,8 +23,18 @@ function App() {
         <Card>
           <CardContent>
             <Stack spacing={32}>
-              <Progress />
-              <TaskList />
+              <Progress
+                completed={completedList.length}
+                progress={completeProgress}
+              />
+              <TaskList
+                todos={todos}
+                onStatusChange={handleStatusChange}
+                onAddTodoList={handleAddTodoList}
+                onDeleteToDoList={handleDeleteTodoList}
+                onToggleToDoList={handleToggleToDoList}
+                onEditToDoList={handleEditToDoList}
+              />
             </Stack>
           </CardContent>
         </Card>
@@ -37,6 +58,7 @@ const Container = styled.div`
 const Card = styled.div`
   width: 720px;
   height: 100%;
+  max-height: 100%;
   border-radius: 20px;
   background-color: ${COLORS.bgColor};
 

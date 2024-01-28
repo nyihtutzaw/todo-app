@@ -4,13 +4,13 @@ import styled from 'styled-components'
 import { COLORS } from '../../constants'
 
 type Props = {
-  isChecked: boolean
+  ischecked: boolean
   onChange: () => void
 }
 
-export const Checkbox: FC<Props> = ({ isChecked, onChange }) => {
+export const Checkbox: FC<Props> = ({ ischecked, onChange }) => {
   return (
-    <StyledCheckbox type='checkbox' checked={isChecked} onChange={onChange} />
+    <StyledCheckbox type='checkbox' checked={ischecked} onChange={onChange} />
   )
 }
 

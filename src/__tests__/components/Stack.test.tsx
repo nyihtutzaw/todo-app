@@ -8,8 +8,8 @@ describe('Stack component', () => {
       <Stack
         spacing={8}
         direction='column'
-        justifyContent='center'
-        alignItems='flex-start'
+        justifycontent='center'
+        alignitems='flex-start'
       >
         <div>Child 1</div>
         <div>Child 2</div>

@@ -10,6 +10,7 @@ export const COLORS = {
   black: '#000000',
   blue: '#3B3B3B',
   disabledTextColor: '#A9A9A9',
+  placeholderTextColor: '#BCBCBC',
 }
 
 export const BREAKPOINTS = {

@@ -4,12 +4,12 @@ import { Checkbox } from '../../components/Checkbox'
 
 describe('Checkbox component', () => {
   it('renders unchecked', () => {
-    render(<Checkbox isChecked={false} onChange={() => {}} />)
+    render(<Checkbox ischecked={false} onChange={() => {}} />)
   })
 
   it('calls onChange when clicked', () => {
     const onChangeMock = jest.fn()
-    render(<Checkbox isChecked={false} onChange={onChangeMock} />)
+    render(<Checkbox ischecked={false} onChange={onChangeMock} />)
 
     const checkbox = screen.getByRole('checkbox')
 

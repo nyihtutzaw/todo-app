@@ -13,11 +13,13 @@ type Option = {
 type SelectBoxProps = {
   options: Option[]
   defaultValue?: string
+  onChange: (value: string) => void
 }
 
 export const SelectBox: React.FC<SelectBoxProps> = ({
   options,
   defaultValue,
+  onChange,
 }) => {
   const [selectedOption, setSelectedOption] = useState<Option | null>(
     options.find((option) => option.value === defaultValue) as Option
@@ -27,12 +29,13 @@ export const SelectBox: React.FC<SelectBoxProps> = ({
   const handleSelectOption = (option: Option) => {
     setSelectedOption(option)
     setOptionsVisible(false)
+    onChange(option.value)
   }
 
   return (
     <SelectBoxWrapper>
       <SelectBoxButton onClick={() => setOptionsVisible(!isOptionsVisible)}>
-        <Stack direction='row' justifyContent='space-between'>
+        <Stack direction='row' justifycontent='space-between'>
           <Text fontSize={13}>
             {selectedOption ? selectedOption.label : 'Select an option'}
           </Text>
